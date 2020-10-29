@@ -1,0 +1,136 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-family: "Lobster", sans-serif;
+  font-weight: lighter;
+}
+
+h2 {
+  font-size: 5rem;
+  font-family: "Lobster", sans-serif;
+  font-weight: lighter;
+}
+
+h3 {
+  font-size: 3rem;
+}
+h4 {
+  font-size: 2.5rem;
+}
+p {
+  font-size: 1.5rem;
+}
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+  border-radius: 2rem;
+}
+
+// ! Classes used in INtersection Observer
+
+.fade-in-left {
+  opacity: 0;
+  transform: translateX(-100%);
+  transition: opacity 250ms ease-in, transform 500ms ease-in;
+}
+.left-faders {
+  opacity: 1;
+  transform: translateX(0%);
+}
+.fade-in-right {
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 250ms ease-in, transform 500ms ease-in;
+}
+.right-faders {
+  opacity: 1;
+  transform: translateX(0%);
+}
+@import "home";
+@import "features";
+@import "soon";
+@import "footer";
+
+@media screen and (max-width: 1200px) {
+  html {
+    font-size: 50%;
+  }
+
+  nav {
+    #logo {
+      flex: 1;
+    }
+    ul {
+      li {
+        margin-left: 5rem;
+      }
+    }
+  }
+
+  .showcase {
+    grid-template-columns: 10% 1fr 10%;
+
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+
+    img,
+    h2,
+    .info {
+      grid-column: 2/3;
+      text-align: center;
+    }
+  }
+
+  .features {
+    align-items: center;
+
+    h2 {
+      margin-top: 5rem;
+    }
+
+    .cards {
+      flex-direction: column;
+      width: 100%;
+
+      .card {
+        margin-top: 5rem;
+      }
+    }
+  }
+
+  .soon {
+    overflow: hidden;
+
+    img {
+      width: 60%;
+    }
+
+    h2 {
+      font-size: 4rem;
+      text-align: center;
+    }
+  }
+
+  footer {
+    h1 {
+      flex: 1;
+    }
+  }
+}

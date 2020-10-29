@@ -1,0 +1,25 @@
+.soon {
+  background: radial-gradient(#525252, #131313);
+  min-height: 80vh;
+  position: relative;
+  z-index: 0;
+
+  img,
+  .circle,
+  h2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .circle {
+    z-index: -1;
+    height: 90%;
+  }
+  .soon-img {
+    height: 90%;
+  }
+  h2 {
+    top: 20%;
+  }
+}
