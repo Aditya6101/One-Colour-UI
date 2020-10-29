@@ -79,6 +79,18 @@ a {
           transform: translateX(0%);
 }
 
+.card {
+  opacity: 0;
+  -webkit-transform: translateY(100%);
+          transform: translateY(100%);
+}
+
+.slide-up {
+  opacity: 1;
+  -webkit-transform: translateY(0%);
+          transform: translateY(0%);
+}
+
 .home {
   background: radial-gradient(#525252, #131313);
 }

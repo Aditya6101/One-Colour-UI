@@ -1,12 +1,14 @@
 const leftFaders = document.querySelectorAll(".fade-in-left");
 const rightFader = document.querySelectorAll(".fade-in-right");
+const sliders = document.querySelectorAll(".card");
 
 // ! Options of the Intersection Observer
+
 const observerOptions = {
   rootMargin: "-200px 0px 0px 0px",
 };
 const sliderOptions = {
-  rootMargin: "100px 0px 0px 0px",
+  rootMargin: "-200px 0px 0px 0px",
 };
 
 // ! Intersection Observer for items which will fade in from left side of the screen
@@ -43,3 +45,25 @@ const rightFadersObserver = new IntersectionObserver(
 );
 
 rightFader.forEach((fader) => rightFadersObserver.observe(fader));
+
+// ! Intersection Observer for cards which will slide up
+
+const sliderObserver = new IntersectionObserver((entries, sliderObserver) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      return;
+    } else {
+      const sliderArr = [...sliders];
+      const index = sliderArr.indexOf(entry.target);
+      entry.target.classList.add("slide-up");
+      entry.target.style.transition = `opacity 250ms ease-in ${
+        index / 3 + 0.5
+      }s, transform 500ms ease-in ${index / 3 + 0.5}s`;
+
+      sliderObserver.unobserve(entry.target);
+    }
+  });
+});
+sliders.forEach((slider) => {
+  sliderObserver.observe(slider);
+});
