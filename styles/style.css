@@ -67,10 +67,6 @@ a {
   opacity: 0;
   -webkit-transform: translateX(100%);
           transform: translateX(100%);
-  -webkit-transition: opacity 250ms ease-in, -webkit-transform 500ms ease-in;
-  transition: opacity 250ms ease-in, -webkit-transform 500ms ease-in;
-  transition: opacity 250ms ease-in, transform 500ms ease-in;
-  transition: opacity 250ms ease-in, transform 500ms ease-in, -webkit-transform 500ms ease-in;
 }
 
 .right-faders {

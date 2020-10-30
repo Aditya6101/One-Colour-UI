@@ -7,9 +7,6 @@ const sliders = document.querySelectorAll(".card");
 const observerOptions = {
   rootMargin: "-200px 0px 0px 0px",
 };
-const sliderOptions = {
-  rootMargin: "-200px 0px 0px 0px",
-};
 
 // ! Intersection Observer for items which will fade in from left side of the screen
 
@@ -32,11 +29,14 @@ leftFaders.forEach((fader) => leftFadersObserver.observe(fader));
 
 const rightFadersObserver = new IntersectionObserver(
   (entries, rightFadersObserver) => {
-    entries.forEach((entry) => {
+    entries.forEach((entry, index) => {
       if (!entry.isIntersecting) {
         return;
       } else {
         entry.target.classList.add("right-faders");
+        entry.target.style.transition = `opacity 250ms ease-in ${
+          index / 2 + 0.5
+        }s, transform 500ms ease-in ${index / 2 + 0.5}s`;
         rightFadersObserver.unobserve(entry.target);
       }
     });
@@ -49,21 +49,19 @@ rightFader.forEach((fader) => rightFadersObserver.observe(fader));
 // ! Intersection Observer for cards which will slide up
 
 const sliderObserver = new IntersectionObserver((entries, sliderObserver) => {
-  entries.forEach((entry) => {
+  entries.forEach((entry, index) => {
     if (!entry.isIntersecting) {
       return;
     } else {
-      const sliderArr = [...sliders];
-      const index = sliderArr.indexOf(entry.target);
       entry.target.classList.add("slide-up");
       entry.target.style.transition = `opacity 250ms ease-in ${
         index / 3 + 0.5
       }s, transform 500ms ease-in ${index / 3 + 0.5}s`;
-
       sliderObserver.unobserve(entry.target);
     }
   });
 });
+
 sliders.forEach((slider) => {
   sliderObserver.observe(slider);
 });

@@ -55,7 +55,6 @@ a {
 .fade-in-right {
   opacity: 0;
   transform: translateX(100%);
-  transition: opacity 250ms ease-in, transform 500ms ease-in;
 }
 .right-faders {
   opacity: 1;
@@ -65,7 +64,6 @@ a {
 .card {
   opacity: 0;
   transform: translateY(100%);
-  // transition: opacity 250ms ease-in, transform 500ms ease-in;
 }
 .slide-up {
   opacity: 1;
