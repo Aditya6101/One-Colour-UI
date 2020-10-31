@@ -70,6 +70,15 @@ a {
   transform: translateY(0%);
 }
 
+.show-img {
+  transform: scale(0);
+  transition: transform 1s ease-in;
+}
+
+.fade-img {
+  transform: scale(1);
+}
+
 @import "home";
 @import "features";
 @import "soon";

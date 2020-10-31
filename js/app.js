@@ -1,7 +1,7 @@
 const leftFaders = document.querySelectorAll(".fade-in-left");
 const rightFader = document.querySelectorAll(".fade-in-right");
 const sliders = document.querySelectorAll(".card");
-
+const dropper = document.querySelector(".show-img");
 // ! Options of the Intersection Observer
 
 const observerOptions = {
@@ -55,8 +55,8 @@ const sliderObserver = new IntersectionObserver((entries, sliderObserver) => {
     } else {
       entry.target.classList.add("slide-up");
       entry.target.style.transition = `opacity 250ms ease-in ${
-        index / 3 + 0.5
-      }s, transform 500ms ease-in ${index / 3 + 0.5}s`;
+        index / 6 + 0.5
+      }s, transform 500ms ease-in ${index / 6 + 0.5}s`;
       sliderObserver.unobserve(entry.target);
     }
   });
@@ -65,3 +65,18 @@ const sliderObserver = new IntersectionObserver((entries, sliderObserver) => {
 sliders.forEach((slider) => {
   sliderObserver.observe(slider);
 });
+
+// ! Intersection Observer for camera imgs which will fade in them
+
+const imgObserver = new IntersectionObserver((entries, imgObserver) => {
+  entries.forEach((entry) => {
+    if (!entry.isIntersecting) {
+      return;
+    } else {
+      entry.target.classList.add("fade-img");
+      imgObserver.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+imgObserver.observe(dropper);

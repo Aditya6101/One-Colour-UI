@@ -87,6 +87,20 @@ a {
           transform: translateY(0%);
 }
 
+.show-img {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 1s ease-in;
+  transition: -webkit-transform 1s ease-in;
+  transition: transform 1s ease-in;
+  transition: transform 1s ease-in, -webkit-transform 1s ease-in;
+}
+
+.fade-img {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
 .home {
   background: radial-gradient(#525252, #131313);
 }
@@ -324,6 +338,12 @@ footer ul {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+}
+
+footer ul li:hover {
+  opacity: 0.6;
+  -webkit-transition: opacity 250ms ease-in;
+  transition: opacity 250ms ease-in;
 }
 
 footer h1 {

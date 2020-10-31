@@ -12,6 +12,12 @@ footer {
     flex: 1;
     list-style: none;
     justify-content: space-between;
+    li {
+      &:hover {
+        opacity: 0.6;
+        transition: opacity 250ms ease-in;
+      }
+    }
   }
 
   h1 {
